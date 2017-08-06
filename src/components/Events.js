@@ -40,7 +40,7 @@ export default function Events() {
                   <hr className="orange" />
                 </div>
                 <div className="sponsor">
-                  <img src="http://image.ibb.co/cpWMak/ED63_ADDB_0772_46_A6_8411_43_F421753845.jpg" alt="ED63_ADDB_0772_46_A6_8411_43_F421753845" />
+                  <img src="https://image.ibb.co/cpWMak/ED63_ADDB_0772_46_A6_8411_43_F421753845.jpg" alt="ED63_ADDB_0772_46_A6_8411_43_F421753845" />
                   <hr className="yellow" />
                 </div>
                 <div className="sponsor">
