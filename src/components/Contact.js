@@ -31,19 +31,12 @@ class Contact extends Component {
   }
 
   buildEmail() {
-    console.log('Building E-mail .. ..');
-    console.log(`.. From: ${this.state.name}, ${this.state.email}`);
-    console.log(`.. Subject: ${this.state.subject}`);
-    console.log(`.. Message: ${this.state.message}`);
-
     let data = {
       Name: this.state.name,
       Email: this.state.email,
       Subject: this.state.subject,
       Message: this.state.message
     };
-
-    console.log('checking:', this.fieldCheck());
     this.fieldCheck() ? this.sendEmail(data) : this.setState({ error: true });
   }
 
@@ -55,15 +48,13 @@ class Contact extends Component {
       { 'content-type': 'application/json'}
     )
     .then((response) => {
-      console.log('RES:', response);
       that.setState({
         sent: true
       });
       that.clearFields();
-      console.log('Sent!');
     })
     .catch(function (error) {
-      console.log('ERR:', error);
+      console.log(error);
       that.setState({
         error: true
       });
@@ -80,17 +71,6 @@ class Contact extends Component {
   }
 
   contactFieldValidation() {
-    // if (this.state.sent) {
-    //   console.log('success');
-    //   return this.renderMessageSent();
-    // } else {
-    //   if (this.state.err) {
-    //     console.log('fail');
-    //     //return error message
-    //     return this.renderMessageNotSent();
-    //   }
-    // }
-
     return (this.state.sent) ?
       this.renderMessageSent()
     :
