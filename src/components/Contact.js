@@ -26,19 +26,28 @@ class Contact extends Component {
     );
   }
 
-  sendEmail() {
-    console.log('Sending E-mail .. ..');
+  fieldCheck() {
+    return !!(this.state.name && this.state.email && this.state.subject && this.state.message);
+  }
+
+  buildEmail() {
+    console.log('Building E-mail .. ..');
     console.log(`.. From: ${this.state.name}, ${this.state.email}`);
     console.log(`.. Subject: ${this.state.subject}`);
     console.log(`.. Message: ${this.state.message}`);
 
-    // Send email to formspree with data received from ContactComponent
     let data = {
       Name: this.state.name,
       Email: this.state.email,
       Subject: this.state.subject,
       Message: this.state.message
     };
+
+    console.log('checking:', this.fieldCheck());
+    this.fieldCheck() ? this.sendEmail(data) : this.setState({ error: true });
+  }
+
+  sendEmail(data) {
     let that = this;
     axios.post(
       `https://formspree.io/${DATA.email}`,
@@ -50,6 +59,8 @@ class Contact extends Component {
       that.setState({
         sent: true
       });
+      that.clearFields();
+      console.log('Sent!');
     })
     .catch(function (error) {
       console.log('ERR:', error);
@@ -57,9 +68,6 @@ class Contact extends Component {
         error: true
       });
     });
-
-    this.clearFields();
-    console.log('Fields Cleared!');
   }
 
   clearFields() {
@@ -69,19 +77,27 @@ class Contact extends Component {
       subject: '',
       message: ''
     });
-    console.log('Fields Cleared!');
   }
 
   contactFieldValidation() {
-    if (this.state.sent) {
-      this.renderMessageSent();
-    } else {
-      if (this.state.err) {
-        //return error message
-        this.renderMessageNotSent();
-      }
-    }
-      return;
+    // if (this.state.sent) {
+    //   console.log('success');
+    //   return this.renderMessageSent();
+    // } else {
+    //   if (this.state.err) {
+    //     console.log('fail');
+    //     //return error message
+    //     return this.renderMessageNotSent();
+    //   }
+    // }
+
+    return (this.state.sent) ?
+      this.renderMessageSent()
+    :
+      (this.state.error) ?
+        this.renderMessageNotSent()
+      :
+        <div>&nbsp;</div>
   }
 
   renderMessageSent() {
@@ -97,7 +113,7 @@ class Contact extends Component {
   renderMessageNotSent() {
     return (
       <div className="alert alert-danger">
-        <strong>*Please fill out the following fields:</strong>
+        <strong>*Please fill out all of the fields!</strong>
       </div>
     );
   }
@@ -129,7 +145,9 @@ class Contact extends Component {
 
         <div className="row">
           <div className="col-md-8 col-md-offset-2 col-xs-12">
-            { this.contactFieldValidation() }
+            <div className="validation">
+              { this.contactFieldValidation() }
+            </div>
             <form>
               <label>*Name:</label><br />
               <input
@@ -163,7 +181,7 @@ class Contact extends Component {
               <hr className="yellow" />
               <div className="row">
                 <div className="col-xs-6 text-left">
-                  <div className="well well-sm text-center send" title="Submit Your Message!" onClick={ this.sendEmail.bind(this) }>
+                  <div className="well well-sm text-center send" title="Submit Your Message!" onClick={ this.buildEmail.bind(this) }>
                     <span className="glyphicon glyphicon-send"></span>
                   </div>
                 </div>
