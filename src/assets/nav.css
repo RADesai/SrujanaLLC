@@ -3,7 +3,17 @@
   padding-right: 3px;
   padding-top: 0px;
   font-family: 'Montserrat', sans-serif;
+}
+
+a {
   color: #f1f4ff;
+}
+
+a:active,
+a:visited,
+a:focus {
+  color: #F10766;
+  text-decoration: underline;
 }
 
 .nav {
@@ -19,7 +29,7 @@
   cursor: pointer;
   color: #F10766;
   border-bottom: 2px solid #F10766;
-  animation: switching 0.75s ease-in-out infinite alternate;
+  animation: switching 2s ease-in-out infinite alternate;
 }
 .nav:focus,
 .home:focus {
@@ -30,11 +40,9 @@
 
 .home {
   padding-top: 5px;
-  /*transition: .3s ease-out;*/
 }
 .home:hover {
   cursor: pointer;
-  /*background-color: #021A59;*/
 }
 .homeLogo {
   width: 75%;
