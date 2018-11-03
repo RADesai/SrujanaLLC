@@ -5,11 +5,26 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.event-card {
+  min-height: 550px;
+  margin: 5px;
+  padding: 10px;
+  /* background-color: #031C61; */
+  /* border-radius: 5px; */
+}
+
+.event-description {
+  min-height: 65px;
+}
+
+.event-date {
+  display: block;
+}
+
 .main {
   box-shadow: 2px 3px 5px 0px #000;
 }
 
 .poster {
   width: 100%;
-  padding-bottom: 25px;
 }
