@@ -15,6 +15,11 @@
 
 .event-description {
   min-height: 65px;
+  margin: 5px;
+}
+
+.event-description .event-date {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .event-date {
