@@ -118,7 +118,7 @@ class Contact extends Component {
             <address>
               <strong>Srujana LLC</strong><br />
               srujanashow@gmail.com<br />
-            <abbr title="Phone">P:</abbr> (973) 652-6607
+            <abbr title="Phone">P:</abbr> (973) 520-3635
             </address>
           </div>
         </div>
