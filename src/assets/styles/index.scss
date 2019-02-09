@@ -1,0 +1,30 @@
+@import '_Globals';
+
+body {
+    background-color: $blue;
+    color: $bright-white;
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+img {
+    width: 100%;
+}
+
+hr {
+    transition: .3s ease-out;
+}
+
+.orange {
+    border-color: $orange;
+}
+
+.yellow {
+    border-color: $yellow;
+}
+
+.blue {
+    border-color: $blue;
+}

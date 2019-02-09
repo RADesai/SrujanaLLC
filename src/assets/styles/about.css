@@ -1,0 +1,11 @@
+.heading,
+.about-body {
+    font-family: 'Montserrat', sans-serif;
+    color: #f1f4ff;
+}
+
+.about-body {
+    box-shadow: 0px 2px 0px #F10766;
+    padding: 10px;
+    margin-bottom: 10px;
+}
